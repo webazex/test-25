@@ -60,7 +60,25 @@ class DB
         self::$dbh = null;
     }
 
-    static public function read(string $tName, array $data){
+    static public function read(string $tName, array $fields, array $where = []){
+        try {
+            $dbh = (is_null(self::$dbh))? self::connect() : self::$dbh;
+            $dbh->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $dbh->beginTransaction();
+            $fields = implode(', ', $fields);
+//            $placeholders = implode(', ', array_fill(0, count($data), '?'));
+            if(!empty($where)){
 
+            }else{
+                $sql = $dbh->prepare("SELECT $fields FROM $tName");
+            }
+
+
+            $sql->execute();
+            $dbh->commit();
+            self::close();
+        } catch (\Exception $e){
+            echo $e->getMessage();
+        }
     }
 }
