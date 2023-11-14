@@ -1,0 +1,9 @@
+*{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 14px;
+}
+header, main, footer {width: 100%;}
