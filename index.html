@@ -27,12 +27,14 @@
     <div class="section full-width">
         <div class="site-size">
             <div class="site-size__form">
-                <p>
-
+                <p class="info">
+                    Відправка через функцію mail() php працює. Проблема власне з відправкою через SMTP за
+                    допомогою PHPMailer, так як там треба вказати коректні налаштування їх SMTP, а хостер їх зможе
+                    надати аж ввечері. Скріни надам в архіві та викладу в git.
                 </p>
                 <form action="" method="post" class="form">
-                    <input type="text" name="name" placeholder="Put your name" required>
-                    <input type="email" name="mail" placeholder="Put your email" required>
+                    <input type="text" name="name" placeholder="Put your name">
+                    <input type="email" name="mail" placeholder="Put your email">
                     <textarea name="desc" placeholder="Put your text"></textarea>
                     <div class="form__panel">
                         <p>Send with:</p>
@@ -42,7 +44,7 @@
                         </label>
                         <label for="mail">
                             <span>MailPHP (as a default)</span>
-                            <input type="radio" name="sender" value="2" id="mail">
+                            <input type="radio" name="sender" value="2" id="mail" checked>
                         </label>
                     </div>
                     <div class="form__btns-row">
@@ -54,6 +56,11 @@
                         </button>
                     </div>
                 </form>
+                <div id="result" class="result-area">
+                    <p class="result-area__message">
+                        Result is here
+                    </p>
+                </div>
             </div>
         </div>
     </div>

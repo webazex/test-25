@@ -18,7 +18,7 @@ $mail = (filter_var($_POST['mail']))? trim(strip_tags($_POST['mail'])) : errorVa
 ]);
 $message = trim(strip_tags($_POST['desc']));
 if($_POST['sender'] == 2){
-    $mail = mail("test-f867sni01@srv1.mail-tester.com, webazex@gmail.com", "Test work #25", "Name: $name \n Email: $mail \n Message: $message");
+    $mail = mail("test-f867sni01@srv1.mail-tester.com", "Test work #25", "Name: $name \n Email: $mail \n Message: $message");
     if($mail){
         echo json_encode([
             'error' => false,
