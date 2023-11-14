@@ -2,7 +2,7 @@
 
 
 namespace Webazex\App;
-
+use Webazex\App\Core\Kernel\DB\DB as DB;
 
 class App
 {
@@ -11,6 +11,13 @@ class App
 
     }
     public function test(){
-        echo "this";
+        DB::connect();
+//        DB::insert('test', [
+//            'id' => NUll,
+//            'name' => 'test2',
+//            'description' => 'test insert method 1',
+//            'value' => '090',
+//        ]);
+
     }
 }
