@@ -41,9 +41,9 @@ if($_POST['sender'] == 2){
     $mail->CharSet = "UTF-8";
     $mail->SMTPAuth   = true;
     $mail->Debugoutput = function($str, $level) {$GLOBALS['data']['debug'][] = $str;};
-    $mail->Host       = 'smtp.gmail.com';
-    $mail->Username   = 'webazex@gmail.com';
-    $mail->Password   = 'password';
+    $mail->Host       = '';
+    $mail->Username   = '';
+    $mail->Password   = '';
     $mail->SMTPSecure = 'ssl';
     $mail->Port       = 465;
     $mail->setFrom('webazex@gmail.com', 'Test work #25 PHPMailer sended');
