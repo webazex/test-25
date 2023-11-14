@@ -9,12 +9,66 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
           rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-<header></header>
-<main></main>
-<footer></footer>
+<header>
+    <div class="site-size">
+        <div class="site-size__header">
+            <div class="header__main-text" style="--stacks: 3;">
+                <span style="--index: 0;">Something in header</span>
+                <span style="--index: 1;">Something in header</span>
+                <span style="--index: 2;">Something in header</span>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="section full-width">
+        <div class="site-size">
+            <div class="site-size__form">
+                <p>
+
+                </p>
+                <form action="" method="post" class="form">
+                    <input type="text" name="name" placeholder="Put your name" required>
+                    <input type="email" name="mail" placeholder="Put your email" required>
+                    <textarea name="desc" placeholder="Put your text"></textarea>
+                    <div class="form__panel">
+                        <p>Send with:</p>
+                        <label for="phpmail">
+                            <span>PHPMail</span>
+                            <input type="radio" name="sender" value="1" id="phpmail">
+                        </label>
+                        <label for="mail">
+                            <span>MailPHP (as a default)</span>
+                            <input type="radio" name="sender" value="2" checked id="mail">
+                        </label>
+                    </div>
+                    <div class="form__btns-row">
+                        <button type="submit">
+                            <span>Send</span>
+                        </button>
+                        <button type="reset">
+                            <span>Cancel</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="site-size">
+        <div class="site-size__footer">
+            <div class="copy">
+                <span>&#169; Anton Latul</span>
+                <span>Тестове завдання</span>
+                <span>2023</span>
+            </div>
+        </div>
+    </div>
+</footer>
 <script src="jquery-min.js"></script>
 <script src="main.js"></script>
 </body>

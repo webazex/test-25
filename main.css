@@ -1,4 +1,4 @@
-*{
+* {
     position: relative;
     margin: 0;
     padding: 0;
@@ -6,4 +6,254 @@
     font-family: 'Advent Pro', sans-serif;
     font-size: 14px;
 }
-header, main, footer {width: 100%;}
+
+@keyframes stack {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%);
+        text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+    }
+    60% {
+        opacity: 0.5;
+        transform: translateX(50%);
+    }
+    80% {
+        transform: none;
+        opacity: 1;
+        text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+    }
+    100% {
+        text-shadow: none;
+    }
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+        transform: translate(var(--glitch-translate));
+    }
+    2% {
+        text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+    }
+    4%, 100% {
+        text-shadow: none;
+        transform: none;
+    }
+}
+input {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid blue;
+    transition: all 0.5s ease-in-out;
+}
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 1px solid white;
+    transition: all 0.5s ease-in-out;
+}
+input[type="radio"]:checked {
+    border: 1px solid white;
+    background-color: blue;
+    transition: all 0.5s ease-in-out;
+}
+textarea {
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid blue;
+    transition: all 0.5s ease-in-out;
+    overflow-y: auto;
+    height: 150px;
+}
+input::placeholder, textarea::placeholder {
+    color: lightgrey;
+    font-size: 16px;
+}
+input:focus, input:hover, textarea:focus, textarea:hover {
+    border-bottom: 1px solid white;
+    transition: all 0.5s ease-in-out;
+}
+
+button {
+    width: auto;
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+button span {
+    font-size: 20px;
+}
+button[type="submit"] span{
+    padding: 0 5px;
+    color: blue;
+    border-bottom: 1px solid transparent;
+    transition: all 0.5s ease-in-out;
+}
+button[type="submit"]:hover span {
+    border-bottom: 1px solid blue;
+    transition: all 0.5s ease-in-out;
+}
+button[type="submit"]:disabled {
+    cursor: not-allowed;
+}
+button[type="submit"]:disabled:hover span {
+    transition: all 0.5s ease-in-out;
+    color: red;
+    border-bottom: 1px solid grey;
+}
+button[type="submit"]:disabled span {
+    color: grey;
+    transition: all 0.5s ease-in-out;
+}
+button[type="reset"] span{
+    padding: 0 5px;
+    color: red;
+    border-bottom: 1px solid transparent;
+    transition: all 0.5s ease-in-out;
+}
+button[type="reset"]:hover span {
+    border-bottom: 1px solid red;
+    transition: all 0.5s ease-in-out;
+}
+header, main, footer {
+    width: 100%;
+    background-color: black;
+}
+
+.site-size {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.site-size__header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header__main-text {
+    position: relative;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.header__main-text span {
+    position: absolute;
+    top: 0;
+    font-size: 20px;
+    font-weight: 300;
+    color: white;
+    --stack-height: calc(100% / var(--stacks) - 1px);
+    --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+    --clip-top: calc(var(--stack-height) * var(--index));
+    --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+    clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+    clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+    animation: stack 340ms cubic-bezier(.46, .29, 0, 1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+}
+
+.header__main-text span:nth-child(odd) {
+    --glitch-translate: 8px;
+}
+
+.header__main-text span:nth-child(even) {
+    --glitch-translate: -8px;
+}
+main {
+
+    height: auto;
+}
+.section.full-width {
+    width: 100%;
+    height: calc(100vh - (70px + 120px));
+}
+.site-size__form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.form {
+    max-width: 540px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 0 12px 0px white;
+}
+.form__btns-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 10px 0;
+}
+.form__panel {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: self-start;
+    padding: 10px 0;
+}
+.form__panel p {
+    color: white;
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+.form__panel label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.form__panel label span {
+    color: white;
+    text-align: left;
+    margin-right: 10px;
+    font-size: 16px;
+}
+.site-size__footer {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.copy {
+    width: auto;
+    padding: 20px 10px 0 10px;
+    border-top: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.copy span {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.copy span:last-child {margin-bottom: 0px;}
