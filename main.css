@@ -287,3 +287,6 @@ main {
     font-size: 20px;
 }
 .copy span:last-child {margin-bottom: 0px;}
+@media (max-width: 540px) {
+    .section.full-width {height: auto; min-height: unset;}
+}
